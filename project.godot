@@ -8,15 +8,24 @@
 
 config_version=5
 
+[GettingStarted]
+
+config/ninetailsrabbit.character_generator_importer_tool/update_notification_enabled=true
+
 [application]
 
 config/name="GettingStarted"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+run/main_scene="res://sprite_2d.tscn"
+config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="GettingStarted"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ninetailsrabbit.character_generator_importer_tool/plugin.cfg")
 
 [rendering]
 
