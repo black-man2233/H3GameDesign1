@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://r7gg38f4jh04"]
+[gd_scene load_steps=4 format=3 uid="uid://r7gg38f4jh04"]
 
 [ext_resource type="Texture2D" uid="uid://xwbu1e1b86la" path="res://icon.svg" id="1_10c7s"]
 [ext_resource type="Script" path="res://Scripts/Sprite2d.cs" id="2_k64wi"]
+[ext_resource type="Texture2D" uid="uid://byhiny246yfck" path="res://Images/1DNf6A.png" id="3_v6mrt"]
 
 [node name="Sprite2D" type="Sprite2D"]
-position = Vector2(239, 192)
+position = Vector2(527, 246)
 texture = ExtResource("1_10c7s")
 script = ExtResource("2_k64wi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-10, 98)
+zoom = Vector2(0.4, 0.4)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="1dNf6a" type="Sprite2D" parent="."]
+position = Vector2(-676, 251.5)
+scale = Vector2(6.01, 3.55938)
+texture = ExtResource("3_v6mrt")

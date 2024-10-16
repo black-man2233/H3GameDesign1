@@ -1,45 +1,19 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class Sprite2d : Sprite2D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Debug.WriteLine("Ready");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-
-	}
-
-
-	private void MoveAndSlideMovement(double delta)
-	{
-		float x = 0;
-		float y = 0;
-
-		Vector2 velocity = new Vector2(x, y);
-
-		if (Input.IsActionPressed("ui_left"))
-		{
-			x += 50; 
-		}
-		if (Input.IsActionPressed("ui_right"))
-		{
-			x -= 50; // Move right
-		}
-		if (Input.IsActionPressed("ui_up"))
-		{
-			y -= 1; // Move up
-		}
-		if (Input.IsActionPressed("ui_down"))
-		{
-			y += 1; // Move down
-		}
-
-		MoveAndSlide(velocity, Vector2.Up);
+		HandleMovement(delta);
 	}
 
 	private void HandleMovement(double delta)
@@ -50,22 +24,26 @@ public partial class Sprite2d : Sprite2D
 		float x = 0;
 		float y = 0;
 
-		// Check for key presses and update movement vector
+		if (Input.IsActionPressed("ui_right"))
+		{
+			x += 1;
+			Debug.WriteLine("rigth");
+		}
+
 		if (Input.IsActionPressed("ui_left"))
 		{
-			x -= 1; // Move left
+			x -= 1;
+			Debug.WriteLine("Left");
 		}
 		if (Input.IsActionPressed("ui_up"))
 		{
-			y -= 1; // Move up
+			y -= 1;
+			Debug.WriteLine("up");
 		}
 		if (Input.IsActionPressed("ui_down"))
 		{
-			y += 1; // Move down
-		}
-		if (Input.IsActionPressed("ui_right"))
-		{
-			x += 1; // Move right
+			y += 1;
+			Debug.WriteLine("down");
 		}
 
 		// Create the movement vector
@@ -79,5 +57,6 @@ public partial class Sprite2d : Sprite2D
 
 		// Update the position based on the movement vector and speed
 		this.Position += movement * speed * (float)delta;
+		Console.WriteLine("Player moved");
 	}
 }
